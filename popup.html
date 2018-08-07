@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<select name="format" style="display:none">
+    <option value="json"> JSON</option>
+</select>
+
+Click here to select the eHarmony Excel file:<br/>
+<input type="file" name="xlfile" id="xlf">
+
+
+<input type="checkbox" name="useworker" style="display:none">
+<input type="checkbox" name="userabs" style="display:none;">
+
+<pre id="out"></pre>
+<div id="htmlout"></div>
+<br>
+<script src="shim.js"></script>
+<script src="xlsx.full.min.js"></script>
+<script src="malam_injector.js"></script>
+<script src="popup.js"></script>
+
+</body>
+</html>
