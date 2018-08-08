@@ -3,7 +3,7 @@ Helps to import eHarmony Excel exported files into Malam online reports.
 
 ### Installation
 * Download ZIP folder and Unzip anywhere on your comp
-* In Chrome browser go to [chrome://extensions](chrome://extensions)
+* In Chrome browser go to <chrome://extensions>
 * Press the button `Load Unpacked`
 * Choose the unzipped extension **folder**
 * Once it's loaded, the new extension "box" will appear on the extensions grid
