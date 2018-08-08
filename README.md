@@ -17,3 +17,6 @@ Helps to import eHarmony Excel exported files into Malam online reports.
 
 ### Tip
 It's advisable to use this extension at 1st of each month, when you can upload a whole Monthly report for the previous month.
+
+### Credits
+Based on <http://sheetjs.com/> scripts. Uses cut version of Malam logo icon.
