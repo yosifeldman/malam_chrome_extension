@@ -1,5 +1,5 @@
 # malam_chrome_extension
-Helps to import eHarmony Excel exported diles into Malam online reports.
+Helps to import eHarmony Excel exported files into Malam online reports.
 
 ### Installation
 * Download ZIP folder and Unzip anywhere on your comp
