@@ -25,3 +25,7 @@ Based on <http://sheetjs.com/> scripts. Uses cut version of Malam logo icon.
 1. **Q:** Sometimes, when I start Chrome, it shows me a message "Disable development mode extensions".
     
     **A:** It's a standard message that Chrome shows when you have an unpacked extension. No worries, just press "Cancel".
+
+2. **Q:** Does the extension support multiple shifts per day?
+
+    **A:** No. For such day it will fill only start time and end time, and you'll have to insert additional rows manually (due to Malam interface limitations). 
