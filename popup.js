@@ -28,6 +28,7 @@ var process_wb = (function() {
     })();
 
     var to_json = function to_json(workbook) {
+        console.log('to_json');
         var result = {};
         workbook.SheetNames.forEach(function(sheetName) {
             var roa = X.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
@@ -37,6 +38,7 @@ var process_wb = (function() {
     };
 
     var to_csv = function to_csv(workbook) {
+        console.log('to_csv');
         var result = [];
         workbook.SheetNames.forEach(function(sheetName) {
             var csv = X.utils.sheet_to_csv(workbook.Sheets[sheetName]);
@@ -59,11 +61,8 @@ var process_wb = (function() {
         if(typeof console !== 'undefined') console.log("output", new Date());
 
         // save result to storage and call next handler
-        let hours = JSON.parse(output);
-
-        chrome.storage.sync.set({eHarmonyJson: hours['Page 2']}, function(){
-            malam_inject_hours();
-        });
+        var hours = JSON.parse(output);
+        malam_inject_hours({eHarmonyJson: hours['Page 2']});
     };
 })();
 
@@ -77,6 +76,7 @@ var do_file = (function() {
     if(!use_worker) domwork.disabled = !(domwork.checked = false);
 
     var xw = function xw(data, cb) {
+        console.log('xw3');
         var worker = new Worker(XW.worker);
         worker.onmessage = function(e) {
             switch(e.data.t) {
@@ -107,5 +107,5 @@ var do_file = (function() {
 
 let xlf = document.getElementById('xlf');
 
-function handleFile(e) { console.log('handleFile'); do_file(e.target.files); }
+function handleFile(e) { do_file(e.target.files); }
 xlf.addEventListener('change', handleFile, false);

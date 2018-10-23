@@ -1,12 +1,14 @@
 /**
  * Created by yosefF on 9/5/2018.
  */
-const processInsertHours = function (h) {
+var processInsertHours = function (h) {
+    console.log('eHarmonyJson');
+    console.log(h);
+    h = h.eHarmonyJson;
     let y = (new Date).getFullYear(), d, v, p = {}, s, msg, k, c = h[0].length * (h.length - 1);
     for (let i = 0; i < h[0].length; i++) {
         for (let j = 1; j < h.length; j++) {
             k = "pt1:dataTable:" + (j - 1);
-            console.log("k = ",k);
             if (h[0][i].trim() === "Date") {
                 d = h[j][i] + "/" + y;
                 v = document.getElementById(k + ":clockInDate::content");
@@ -44,7 +46,7 @@ const processInsertHours = function (h) {
     alert(msg);
 };
 
-const detectProblems = function (prob) {
+var detectProblems = function (prob) {
     let r = "";
     for (let d in prob) {
         if (prob.hasOwnProperty(d)) {
@@ -59,7 +61,7 @@ const detectProblems = function (prob) {
     return r;
 };
 
-const wrongDateAlert = function (t) {
+var wrongDateAlert = function (t) {
     alert("ERROR: " + t +
         "\n\nCANNOT PROCEED - please do:\n" +
         "   1. download from eHarmony again, the date range report,\n" +
@@ -68,11 +70,11 @@ const wrongDateAlert = function (t) {
         "   3. try to import again.");
 };
 
-const getFirstOfMonth = function () {
+var getFirstOfMonth = function () {
     return document.getElementById("pt1:dataTable:0:clockInDate::content").value;
 };
 
-const getLastOfMonth = function () {
+var getLastOfMonth = function () {
     const e = document.getElementById("pt1:dataTable:30:clockInDate::content");
     if (e) return e.value;
     return document.getElementById("pt1:dataTable:29:clockInDate::content").value;
