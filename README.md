@@ -10,6 +10,14 @@ Helps to import eHarmony Excel exported files into Malam online reports.
 * Press the switcher on the box to turn on the extension
 * Enjoy!
 
+### Upgrade to newer version
+* Step 1: delete the old version, as follows:
+    * In Chrome browser go to <chrome://extensions>.
+    * Find the "box" of "Malam - Import eHarmony Hours" and press `Remove` button.
+    * Then go to folder where you downloaded and unzipped the extension and delete all.
+* Step 2: do the process of installation of the new version (above)
+
+
 ### Usage
 * Download the eHarmony Time Card Report in **Excel** format. (from `Reports` menu on eHarmony website).
 * Open the Malam attendance report.
