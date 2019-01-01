@@ -1,11 +1,37 @@
 /**
  * Created by yosefF on 9/5/2018.
  */
-var processInsertHours = function (h) {
-    //console.log('eHarmonyJson');
+var processInsertHours = function (data) {
+
+    // validate eHarmony from and to dates against Malam from and to dates
+    let malamFrom = getFirstOfMonth(), malamTo = getLastOfMonth();
+    if(!isLaterInTheMonth(data.fromDate, malamFrom)) {
+        wrongDateAlert("The date "+data.fromDate+" is invalid.");
+        return false;
+    }
+    if(!isLaterInTheMonth(data.toDate, malamTo)) {
+        wrongDateAlert("The date "+data.toDate+" is invalid.");
+        return false;
+    }
+
+    let h = data.hoursJson;
+    //console.log('hoursJson');
     //console.log(h);
-    h = h.eHarmonyJson;
-    let y = (new Date).getFullYear(), d, v, p = {}, s, msg, k, c = h[0].length * (h.length - 1);
+
+    // parse eHarmony from and to dates
+    let from = data.fromDate.split("/"), to = data.toDate.split("/");
+    from = new Date(Number(from[2]), Number(from[1]) - 1, Number(from[0]));
+    to   = new Date(Number(to[2]), Number(to[1]) - 1, Number(to[0]));
+    //console.log('from: ' + from.toISOString());
+    //console.log('to: ' + to.toISOString());
+
+    if(from.getYear()!==to.getYear() || from.getMonth()!==to.getMonth()) {
+        wrongDateAlert("Sorry! Report for 2 years or 2 months is not supported!");
+        return false;
+    }
+
+    // go
+    let y = from.getFullYear(), d, v, p = {}, s, msg, k, c = h[0].length * (h.length - 1);
     //console.log("C = "+c);
     for (let i = 0; i < h[0].length; i++) {
         for (let j = 1; j < h.length; j++) {
@@ -86,6 +112,7 @@ var getLastOfMonth = function () {
 };
 
 var isLaterInTheMonth = function (issueDate, correctDate) {
+    //console.log('issueDate: ' + issueDate + ', correctDate: ' + correctDate);
     var s1 = issueDate.substr(2), s2 = correctDate.substr(2), s3 = issueDate.substr(0,2), s4 = correctDate.substr(0,2);
-    return (s1 === s2) && (s3 > s4);
+    return (s1 === s2) && (s3 >= s4);
 };

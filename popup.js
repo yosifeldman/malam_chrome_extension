@@ -62,7 +62,13 @@ var process_wb = (function() {
 
         // save result to storage and call next handler
         var hours = JSON.parse(output);
-        malam_inject_hours({eHarmonyJson: hours['Page 2']});
+        //console.log('Full JSON:');
+        //console.log(hours);
+        malam_inject_hours({
+            fromDate: hours['Page 1'][2][32],
+            toDate: hours['Page 1'][3][32],
+            hoursJson: hours['Page 2']
+        });
     };
 })();
 
